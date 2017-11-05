@@ -1,7 +1,6 @@
 <?php
 namespace app\index\controller;
 
-use \think\Log;
 use \think\Db;
 
 class Index extends \think\Controller
@@ -27,9 +26,9 @@ class Index extends \think\Controller
 
     public function job()
     {
-        for($i = 0; $i < 100000; $i++) {
+        for($i = 0; $i < 10; $i++) {
             $data = '任务生产时间：' . date('Y-m-d H:i:s');
-            \think\Queue::push('index/Job1', $data = $data, $queue = null);
+            \think\Queue::push('index/JobTest', $data = $data, $queue = null);
         }
         return '任务已经生产完毕';
     }
